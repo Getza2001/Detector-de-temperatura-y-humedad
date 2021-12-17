@@ -1,0 +1,48 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Temperatra y Humedad
+    //link(rel='stylesheet' href='/stylesheets/lectura.css')
+    link(rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css')
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    
+    //link(rel="stylesheet" href="/stylesheets/lectura.css")
+    
+
+  body
+    section#app.hero.is-link.is-fullheight
+      .hero-body
+        .container
+          .columns.has-text-centered
+            .column
+              h1(style='font-size: 2.5rem') Termómetro
+              i.fa.fa-thermometer-half(style='font-size: 4rem;')
+          .columns
+            .column.has-text-centered
+              h2.is-size-4 Temperatura
+              h2(id='lblTemperatura').is-size-1 ##.## °C
+            .column.has-text-centered
+              h2.is-size-4 Humedad
+              h2(id='lblHumedad').is-size-1 ##.## %
+          .columns
+            .column
+              p
+                | Última lectura: Hace 
+                label(id='lblContador').has-text-white 0 
+                
+              p.is-size-5
+                //i.fa.fa-code
+                |  Grupo 
+                //i.fa.fa-heart.has-text-danger
+                |  Penagos
+                h5.has-text-warning(target='_blank' href='#') Tuxtla Gutierrez, Chiapas
+    |       Desarrollado por el area de Desarrollo de Software de Grupo Penagos
+    p
+    script(src='https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js')
+    script(src='/javascripts/lectura.js' type='module')
+
+      
+      

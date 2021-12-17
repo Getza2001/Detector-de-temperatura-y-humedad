@@ -1,0 +1,51 @@
+body {
+  position: fixed;
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;    
+}
+
+main {
+  height: -webkit-fill-available;
+  /*background-image: url("https://cdn.pixabay.com/photo/2015/09/09/19/56/office-932926_1280.jpg"); */
+  background-image: url("https://www.muycomputerpro.com/wp-content/uploads/2019/04/venta_servidores.jpg");
+  /*background-image: url("../images/imgSalaServidores.jpg");*/
+  /*background-repeat: no-repeat;*/
+  background-image: url("../images/1.jpg");
+  background-position: center; 
+}
+.panel {
+  background-color: rgb(54, 107, 221);
+  border-radius: 0;    
+}
+.card {
+  border: 0;
+}
+.card-title  {
+  color: #0f4c75;
+}
+.card-body {
+  color: #0f4c75;
+}
+.form-control {
+  border: 0;
+  border-bottom: 1px solid #0f4c75;
+  border-radius: 0;
+}
+.btn-primary {
+  background-color: #0f4c75;
+  color: #fff;
+  border: 0;
+}
+#registrate {
+  color: #0f4c75;
+  font-weight: 700;
+}
+footer {
+  position: absolute;
+  bottom: 20px;
+  color: #3282b8;  
+}
+
+.accesoDenegado{
+  color: red;
+}
