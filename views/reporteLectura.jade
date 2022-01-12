@@ -3,17 +3,11 @@ html(lang='es')
   head
     meta(charset='UTF-8')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Temperatra y Humedad
-    //link(rel='stylesheet' href='/stylesheets/lectura.css')
+    meta(http-equiv='X-UA-Compatible' content='ie=edge')
     link(rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css')
-    //link(rel='stylesheet'   href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css')
-    
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-
-
-    
-  
-
+    link(rel='stylesheet', href='/stylesheets/reporteLectura.css')
+    title Reporte de lecturas
     
 
   body
@@ -30,8 +24,7 @@ html(lang='es')
       #navbarBasicExample.navbar-menu
         .navbar-start
           a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/main/'+usuario.IdUsuario)
-            | Inicio
-          form(action="", method="post") 
+            | Inicio           
           a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)   
             | Generar reporte            
           a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/construccion')             
@@ -41,7 +34,7 @@ html(lang='es')
               | Mas
             .navbar-dropdown
               
-              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about/'+usuario.IdUsuario )
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about')
                 | Acerca de
               a.navbar-item(href='http://rhchiapas.herokuapp.com/' target="_blank")
                 | Catalogo Centros de Costo
@@ -59,39 +52,31 @@ html(lang='es')
               //a.button.is-light
                 | LogIn
 
-    //Contenido de la pagina
-    section#app.hero.is-link.is-fullheight
-      .hero-body
-        .container
-          .columns.has-text-centered
-            .column
-              h1(style='font-size: 2.5rem') Termómetro
-              a(href='http://127.0.0.1:3000/reporte/'+usuario.IdUsuario)
-                i.fa.fa-thermometer-half(style='font-size: 4rem;')
-          .columns
-            .column.has-text-centered
-              h2.is-size-4 Temperatura
-              h2(id='lblTemperatura').is-size-1 ##.## °C
-            .column.has-text-centered
-              h2.is-size-4 Humedad
-              h2(id='lblHumedad').is-size-1 ##.## %
-          .columns
-            .column
-              p
-                | Última lectura el 
-                label(id='lblFecha').has-text-white ##### 
-                label(id='lblHora').has-text-white  
-              p.is-size-5
-                //i.fa.fa-code
-                |  GPM 
-                //i.fa.fa-heart.has-text-danger
-                |  
-                h5.has-text-warning(target='_blank' href='#') Tuxtla Gutierrez, Chiapas.
-    |       Desarrollado por el area de Desarrollo de Software de GPM
-    p
-    script(src='https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js')
-    script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js')
-    script(src='/javascripts/lectura.js' type='module')
 
-      
-      
+    section#app.hero.is-link.is-fullheight
+        .hero-body
+            
+            table(id='tablaReporte')
+                caption 100 Ultimas lecturas de Temperatura y Humedad
+                thead
+                    tr
+                      //th(scope='col') Numero Fila
+                      th(scope='col') Fecha
+                      th(scope='col') Hora
+                      th(scope='col') Temperatura
+                      th(scope='col' ) Humedad
+                tbody
+                    //tr
+                        td(data-label='Fecha') 28/12/2021
+                        td(data-label='Hora') 8:08 p.m.
+                        td(data-label='Temperatura') 22.17 ºC
+                        td(data-label='Humedad') 47 %
+                    //tr            
+                        td(data-label='Fecha') 28/12/2021
+                        td(data-label='Hora') 8:08 p.m.
+                        td(data-label='Temperatura') 22.17 ºC
+                        td(data-label='Humedad') 47 %
+    script(src='https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js')                        
+    script(src='/javascripts/reporteLectura.js' type='module')
+            
