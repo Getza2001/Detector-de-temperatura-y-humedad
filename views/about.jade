@@ -23,10 +23,21 @@ html(lang='en')
       #navbarBasicExample.navbar-menu
         .navbar-start
           a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/main/'+usuario.IdUsuario)
-            | Inicio           
-          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)   
-            | Generar reporte            
-          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/construccion')             
+            | Inicio
+          form(action="", method="post") 
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link         
+              | Reportes 
+            .navbar-dropdown     
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo-MySQL/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                        
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo/'+usuario.IdUsuario)
+                | Reporte con leturas completas   
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-programado/'+usuario.IdUsuario)
+                | Reporte con lecturas programadas                   
+              hr.navbar-divider  
+                               
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/como-usarlo/'+usuario.IdUsuario)             
             | Como usarlo
           .navbar-item.has-dropdown.is-hoverable
             a.navbar-link

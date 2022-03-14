@@ -24,17 +24,28 @@ html(lang='es')
       #navbarBasicExample.navbar-menu
         .navbar-start
           a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/main/'+usuario.IdUsuario)
-            | Inicio           
-          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)   
-            | Generar reporte            
-          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/construccion')             
+            | Inicio
+          form(action="", method="post") 
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link         
+              | Reportes 
+            .navbar-dropdown              
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo-MySQL/'+usuario.IdUsuario)
+                | Reporte con lecturas completas               
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)
+                | Reporte con leturas   
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                   
+              hr.navbar-divider  
+                               
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/como-usarlo/'+usuario.IdUsuario)             
             | Como usarlo
           .navbar-item.has-dropdown.is-hoverable
             a.navbar-link
               | Mas
             .navbar-dropdown
               
-              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about')
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about/'+usuario.IdUsuario)
                 | Acerca de
               a.navbar-item(href='http://rhchiapas.herokuapp.com/' target="_blank")
                 | Catalogo Centros de Costo
@@ -57,10 +68,12 @@ html(lang='es')
         .hero-body
             
             table(id='tablaReporte')
-                caption 100 Ultimas lecturas de Temperatura y Humedad
+                caption 100 Ultimas lecturas en timepo real de Temperatura y Humedad
                 thead
                     tr
                       //th(scope='col') Numero Fila
+                      th(scope='col') Numero fila
+                      th(scope='col') Tipo lectura
                       th(scope='col') Fecha
                       th(scope='col') Hora
                       th(scope='col') Temperatura

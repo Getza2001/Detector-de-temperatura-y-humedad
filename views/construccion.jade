@@ -3,12 +3,67 @@ html
   head
     title Página web en mantenimiento
     meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
     meta(name='description' content='Ejemplo práctico de aplicación del posicionamiento fijo')
     meta(name='author' content='francesc ricart')
-    link(rel="stylesheet", href="stylesheets/enCostruccion.css")
+    link(rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css')            
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')    
+    link(rel="stylesheet", href="/stylesheets/enCostruccion.css")
     
       
   body
+    //Barra de navegacion
+    nav.navbar(role='navigation' aria-label='main navigation')
+      .navbar-brand
+        b.navbar-item
+          a.navbar-item(href='#' style = 'font-size:20px') #{usuario.nombreCompleto}
+          //img(src='https://logodownload.org/wp-content/uploads/2021/07/dominos-pizza-logo-0.png' width='112' height='28')
+        //a.navbar-burger(role='button' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+      #navbarBasicExample.navbar-menu
+        .navbar-start
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/main/'+usuario.IdUsuario)
+            | Inicio
+          form(action="", method="post") 
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link         
+              | Reportes 
+            .navbar-dropdown   
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo-MySQL/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                          
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo/'+usuario.IdUsuario)
+                | Reporte con leturas    
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                   
+              hr.navbar-divider  
+                               
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/como-usarlo/'+usuario.IdUsuario)             
+            | Como usarlo
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link
+              | Mas
+            .navbar-dropdown
+              
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about/'+usuario.IdUsuario)
+                | Acerca de
+              a.navbar-item(href='http://rhchiapas.herokuapp.com/' target="_blank")
+                | Catalogo Centros de Costo
+              
+              //a.navbar-item
+                | Contact
+              hr.navbar-divider
+              //a.navbar-item
+                | Report an issue
+        .navbar-end
+          .navbar-item            
+            .buttons
+              form(action="/login", method="GET") 
+                button.button.is-primary
+                  strong LogIn
+              //a.button.is-light
+                | LogIn
     .mantenimiento
       h1 Temperatura y Humedad en Tiempo Real
       p

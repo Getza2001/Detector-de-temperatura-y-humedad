@@ -1,0 +1,92 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Como usarlo
+    link(rel='stylesheet' href='https://unpkg.com/bulma@0.9.1/css/bulma.min.css')    
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')  
+    link(rel="stylesheet", href="/stylesheets/comoUsarlo.css")
+  body
+    //Barra de navegacion
+    nav.navbar(role='navigation' aria-label='main navigation')
+      .navbar-brand
+        b.navbar-item
+          a.navbar-item(href='#' style = 'font-size:20px') #{usuario.nombreCompleto}
+          //img(src='https://logodownload.org/wp-content/uploads/2021/07/dominos-pizza-logo-0.png' width='112' height='28')
+        //a.navbar-burger(role='button' aria-label='menu' aria-expanded='false' data-target='navbarBasicExample')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+          span(aria-hidden='true')
+      #navbarBasicExample.navbar-menu
+        .navbar-start
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/main/'+usuario.IdUsuario)
+            | Inicio
+          form(action="", method="post") 
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link         
+              | Reportes 
+            .navbar-dropdown  
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo-MySQL/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                           
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte/'+usuario.IdUsuario)
+                | Reporte con leturas    
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/reporte-completo/'+usuario.IdUsuario)
+                | Reporte con lecturas completas                   
+              hr.navbar-divider  
+                               
+          a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/como-usarlo/'+usuario.IdUsuario)             
+            | Como usarlo
+          .navbar-item.has-dropdown.is-hoverable
+            a.navbar-link
+              | Mas
+            .navbar-dropdown
+              
+              a.navbar-item(href='https://detector-temperatura-humedad.herokuapp.com/about/'+usuario.IdUsuario)
+                | Acerca de
+              a.navbar-item(href='http://rhchiapas.herokuapp.com/' target="_blank")
+                | Catalogo Centros de Costo
+              
+              //a.navbar-item
+                | Contact
+              hr.navbar-divider
+              //a.navbar-item
+                | Report an issue
+        .navbar-end
+          .navbar-item            
+            .buttons
+              form(action="/login", method="GET") 
+                button.button.is-primary
+                  strong LogIn
+              //a.button.is-light
+                | LogIn  
+    h1 Como interpretar las lecturas de la pagina
+    section.block-of-text
+      h2 Temperatura
+      p 
+        |La temperatura se toma en unidades Celsius (ºC), para saber si la temperatura es la indicada 
+        |o si esta cerca de la indicada o no es la indicada se mostraran el los colore, verdes, amarrillos y rojos, 
+        |el verde indica una buena temperatura , la amarrilla indica una temperatura cercada a la optima y la roja
+        |indica una lectura no bueno, cuando la tempratura se muestre en color rojo se debe de atender de imetiato
+        |la habitacion donde estan los servidores para evitar un fallo en los servidores, una buena temperatura es
+        |la que esta entre los 15 y los 22 ºC, una temperatura cerca de la indicada esta entre los 23 y 25 ºC y una
+        |y una temperatura mala son las de 26 ºC en adelante 
+    section.block-of-text
+      h2 Humedad
+      p
+        |La humedad se toma en unidades de porcentaje (%) de humedad, para saber si la humedad es la indicada 
+        |o si esta cerca de la indicada o no es la indicada se mostraran el los colore, verdes, amarrillos y rojos, 
+        |el verde indica una buena humedad , la amarrilla indica una humedad cercada a la optima y la roja
+        |indica una lectura no bueno, cuando la tempratura se muestre en color rojo se debe de atender de imetiato
+        |la habitacion donde estan los servidores para evitar un fallo en los servidores, una buena humedad es
+        |la que esta entre los 40 y los 60 % de humedad, una humedad cerca de la indicada esta entre los 61 a los 80 %  de humedad y de 
+        |los 25 a los 39 % de humedad una y una humedad mala son las de 81 % en adelante y de los 24 para abajo
+    //section.image
+      h2 Images
+      img(src='https://placeholdit.imgix.net/~text?txtsize=33&txt=120%C3%9770&w=120&h=70')
+
+    //p.read-more
+      | More info at 
+      a(href='#') zerosixthree.se
+    //script(src='index.js')
